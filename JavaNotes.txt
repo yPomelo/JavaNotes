@@ -139,4 +139,59 @@ this语句不能用在一般函数中
     如果在函数上声明了该异常，调用者可以不用进行处理，编译一样通过
     之所以不用再函数伤命，是因为不需要让调用者处理
     当该异常发生时，希望程序停止运行，因为在运行时出现了无法继续运算的情况，希望停止程序后，对代码进行修正
-    
+25、字符流和字节流
+    字节流两个基类：InputStream OutStream
+    字符流两个基类：Reader Writer
+    fw.close()和fw.flush的区别 
+        flush刷新流，将流中的内容写入文件，刷新后流可以继续使用
+        close关闭流，在关闭之前刷新流
+26、读取一个Java文件，并打印在控制台上
+    class FileReaderTest 
+{
+	public static void main(String[] args) throws IOException
+	{
+		FileReader  fr = new FileReader("DateDemo.java");
+
+		char[] buf = new  char[1024];
+
+		int num = 0;
+
+		while((num=fr.read(buf))!=-1)//结束时 返回-1 以此判断
+		{
+			System.out.print(new String(buf,0,num));//num数组长度
+		}
+
+		fr.close();
+	}
+
+}
+27、File类常见方法：
+    1，创建。
+        boolean createNewFile():在指定位置创建文件，如果该文件已经存在，则不创建，返回false。
+                            和输出流不一样，输出流对象一建立创建文件。而且文件已经存在，会覆盖。
+
+        boolean mkdir():创建文件夹。
+        boolean mkdirs():创建多级文件夹。
+    2，删除。
+        boolean delete()：删除失败返回false。如果文件正在被使用，则删除不了返回falsel。
+        void deleteOnExit();在程序退出时删除指定文件。
+
+
+    3，判断。
+        boolean exists() :文件是否存在.
+        isFile():
+        isDirectory();
+        isHidden();
+        isAbsolute();
+
+    4，获取信息。
+        getName():
+        getPath():
+        getParent():
+
+        getAbsolutePath() 
+        long lastModified() 
+        long length() 
+
+28、记住在判断文件对象是否是文件或者目的时，必须要先判断该文件对象封装的内容是否存在。
+	通过exists判断。
