@@ -195,3 +195,113 @@ this语句不能用在一般函数中
 
 28、记住在判断文件对象是否是文件或者目的时，必须要先判断该文件对象封装的内容是否存在。
 	通过exists判断。
+29、字符流：
+        FileReader
+        FileWriter。
+
+        BufferedReader
+        BufferedWriter
+
+    字节流：
+        FileInputStream
+        FileOutputStream
+
+        BufferedInputStream
+        BufferedOutputStream
+
+30、！！！获取键盘录入对象。
+		InputStream in = System.in;
+
+		将字节流对象转成字符流对象，使用转换流。InputStreamReader
+		InputStreamReader isr = new InputStreamReader(in);
+
+		为了提高效率，将字符串进行缓冲区技术高效操作。使用BufferedReader
+
+		BufferedReader bufr = new BufferedReader(isr);
+
+
+		键盘的最常见写法(上面三句话合成一句话)。
+		BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));
+    
+31、1，明确源和目的
+        源：输入流。InputStream  Reader
+        目的：输出流。OutputStream  Writer
+    2，操作的数据是否是纯文本
+        是：字符流
+        不是：字节流
+
+32、StringBuffer是一个容器 区间参数左闭右开 如[2,3]取2
+    1，存储。
+	StringBuffer append():将指定数据作为参数添加到已有数据结尾处。
+	StringBuffer insert(index,数据):可以将数据插入到指定index位置。
+
+    2，删除。
+        StringBuffer delete(start,end):删除缓冲区中的数据，包含start，不包含end。
+        StringBuffer deleteCharAt(index):删除指定位置的字符。
+        
+    3，获取。
+        char charAt(int index) 
+        int indexOf(String str) 
+        int lastIndexOf(String str) 
+        int length() 
+        String substring(int start, int end) 
+    
+    4，修改。
+        StringBuffer replace(start,end,string);
+        void setCharAt(int index, char ch) ;
+
+
+    5，反转。
+        StringBuffer reverse();
+    
+    6，
+        将缓冲区中指定数据存储到指定字符数组中。
+        void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin) 
+
+33、基本数据类型对象包装类
+        byte	Byte
+        short	Short
+        int		Integer
+        long	Long
+        boolean Boolean
+        float	Float
+        double	Double
+        char	Character
+
+33、基本数据类型对象包装类的最常见作用，
+    就是用于基本数据类型和字符串类型之间做转换
+
+    基本数据类型转成字符串。
+
+        基本数据类型+""
+
+        基本数据类型.toString(基本数据类型值);
+
+        如： Integer.toString(34);//将34整数变成"34";
+
+
+    字符串转成基本数据类型。
+
+        xxx a = Xxx.parseXxx(String);
+
+        int a = Integer.parseInt("123");
+
+        double b = Double.parseDouble("12.23");
+
+        boolean b = Boolean.parseBoolean("true");
+
+        Integer i = new Integer("123");
+
+        int num = i.intValue();
+
+        
+
+
+    十进制转成其他进制。
+        toBinaryString();
+        toHexString();
+        toOctalString();
+
+
+    其他进制转成十进制。
+        parseInt(string,radix);
